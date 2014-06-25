@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Configure PostgreSQL VM
   config.vm.define "db_postgres" do |db_postgres|
-    db_postgres.network "private_network", ip: "192.168.2.50"
+    db_postgres.vm.network "private_network", ip: "192.168.2.50"
 
     db_postgres.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = File.join(File.dirname(__FILE__), 'cookbooks')
